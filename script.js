@@ -6,48 +6,48 @@ $(document).ready(function () {
 	// $('#image').text('')
 
 	//get a random number
-	let randomNumber = Math.floor(Math.random() * 83) + 1
+	let randomNumber = Math.round(Math.random() * 82)
 	console.log(randomNumber)
 
 	let randomCharacter = `https://akabab.github.io/starwars-api/api/id/${randomNumber}.json`
 
 	$.get(randomCharacter, function (data) {
-		console.log(data['name'])
+		console.log(data["name"])
 
 		//change card data
 
 		//assign image URL to a variable
-		let characterImageURL = `${data['image']}`
+		let characterImageURL = `${data["image"]}`
 		//change the source value attribute to
-		$('#image').attr('src', characterImageURL)
+		$("#image").attr("src", characterImageURL)
 
 		//character name
-		let characterName = `Name: ${data['name']}`
-		$('#name').text(characterName)
+		let characterName = `Name: ${data["name"]}`
+		$("#name").text(characterName)
 		//character species
-		let characterSpecies = `Species: ${data['species']}`
-		$('#species').text(characterSpecies)
+		let characterSpecies = `Species: ${data["species"]}`
+		$("#species").text(characterSpecies)
 		//character world
-		let characterWorld = `Home World: ${data['homeworld']}`
-		$('#homeworld').text(characterWorld)
+		let characterWorld = `Home World: ${data["homeworld"]}`
+		$("#homeworld").text(characterWorld)
 
 		//change card data when the button is clicked
-		$('#button').click(function () {
+		$("#button").click(function () {
 			$.get(randomCharacter, function (data) {
 				//assign image URL to a variable
-				characterImageURL = `${data['image']}`
+				characterImageURL = `${data["image"]}`
 				//change the source value attribute to
-				$('#image').attr('src', characterImageURL)
+				$("#image").attr("src", characterImageURL)
 
 				//character name
-				characterName = `Name: ${data['name']}`
-				$('#name').text(characterName)
+				characterName = `Name: ${data["name"]}`
+				$("#name").text(characterName)
 				//character species
-				characterSpecies = `Species: ${data['species']}`
-				$('#species').text(characterSpecies)
+				characterSpecies = `Species: ${data["species"]}`
+				$("#species").text(characterSpecies)
 				//character world
-				characterWorld = `Home World: ${data['homeworld']}`
-				$('#homeworld').text(characterWorld)
+				characterWorld = `Home World: ${data["homeworld"]}`
+				$("#homeworld").text(characterWorld)
 			})
 		})
 	})
